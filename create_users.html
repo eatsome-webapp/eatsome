@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eatsome - Gebruikers Aanmaken</title>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #FFD600;
+      border: none;
+      color: #333;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #E6BF00;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 4px;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+  <h1>Eatsome - Gebruikers Aanmaken</h1>
+  
+  <h2>Admin Gebruiker</h2>
+  <div class="form-group">
+    <label for="admin-email">Email</label>
+    <input type="email" id="admin-email" value="kocamis.emre@gmail.com">
+  </div>
+  <div class="form-group">
+    <label for="admin-password">Wachtwoord</label>
+    <input type="password" id="admin-password" value="Welkom123!">
+  </div>
+  <button onclick="createUser('admin')">Admin Aanmaken</button>
+  
+  <h2>Customer Gebruiker</h2>
+  <div class="form-group">
+    <label for="customer-email">Email</label>
+    <input type="email" id="customer-email" value="emre___1989@hotmail.com">
+  </div>
+  <div class="form-group">
+    <label for="customer-password">Wachtwoord</label>
+    <input type="password" id="customer-password" value="kocamis40">
+  </div>
+  <button onclick="createUser('customer')">Customer Aanmaken</button>
+  
+  <h2>Restaurant Gebruiker</h2>
+  <div class="form-group">
+    <label for="restaurant-email">Email</label>
+    <input type="email" id="restaurant-email" value="restaurant@example.com">
+  </div>
+  <div class="form-group">
+    <label for="restaurant-password">Wachtwoord</label>
+    <input type="password" id="restaurant-password" value="Welkom123!">
+  </div>
+  <button onclick="createUser('restaurant')">Restaurant Aanmaken</button>
+  
+  <div id="result"></div>
+  
+  <script>
+    // Supabase client initialiseren
+    const supabaseUrl = 'https://xplxxwodtmlrqrifvlcj.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhwbHh4d29kdG1scnFyaWZ2bGNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4OTE2ODgsImV4cCI6MjA2MjQ2NzY4OH0.LMG2XMF0FLwYUKOCssw2e4StSfkxqCedv6QP207613I';
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+    
+    async function createUser(type) {
+      const resultDiv = document.getElementById('result');
+      resultDiv.className = '';
+      resultDiv.innerHTML = 'Bezig met aanmaken...';
+      
+      try {
+        const email = document.getElementById(`${type}-email`).value;
+        const password = document.getElementById(`${type}-password`).value;
+        
+        let metadata = {};
+        if (type === 'admin') {
+          metadata = { role: 'admin' };
+        } else if (type === 'customer') {
+          metadata = { role: 'customer' };
+        } else if (type === 'restaurant') {
+          metadata = { role: 'restaurant_owner' };
+        }
+        
+        // Gebruiker aanmaken in Supabase
+        const { data, error } = await supabaseClient.auth.signUp({
+          email,
+          password,
+          options: {
+            data: metadata
+          }
+        });
+        
+        if (error) {
+          resultDiv.className = 'result error';
+          resultDiv.innerHTML = `Fout bij het aanmaken van ${type} gebruiker: ${error.message}`;
+        } else {
+          resultDiv.className = 'result success';
+          resultDiv.innerHTML = `${type.charAt(0).toUpperCase() + type.slice(1)} gebruiker aangemaakt!<br>Email: ${email}<br>ID: ${data.user.id}`;
+        }
+      } catch (err) {
+        resultDiv.className = 'result error';
+        resultDiv.innerHTML = `Onverwachte fout: ${err.message}`;
+      }
+    }
+  </script>
+</body>
+</html> 

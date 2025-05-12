@@ -1,0 +1,17 @@
+{
+  "name": "@eatsome/utils",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "lint": "eslint .",
+    "clean": "rm -rf .turbo node_modules"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@types/node": "^20",
+    "eslint": "^9",
+    "typescript": "^5"
+  }
+} 
