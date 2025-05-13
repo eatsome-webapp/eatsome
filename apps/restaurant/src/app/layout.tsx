@@ -1,12 +1,10 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
+import type { Metadata } from 'next';
 import { Providers } from './providers';
 
-const inter = Inter({ subsets: ['latin'] });
-
-export const metadata = {
-  title: 'Eatsome - Restaurant Management',
-  description: 'Streamline your restaurant operations with Eatsome',
+export const metadata: Metadata = {
+  title: 'Eatsome Restaurant Portal',
+  description: 'Beheer je restaurant met Eatsome',
 };
 
 export default function RootLayout({
@@ -15,11 +13,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers>
-          {children}
-        </Providers>
+    <html lang="nl" suppressHydrationWarning>
+      <body>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
