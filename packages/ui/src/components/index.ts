@@ -18,3 +18,11 @@
 
 // Export all UI components
 // For now this file is empty, but we'll add component exports here later 
+
+// This file will export all UI components
+// For now it's empty as we haven't created any components yet
+
+// Example of future exports:
+// export * from './Button';
+// export * from './Card';
+// export * from './Input'; 

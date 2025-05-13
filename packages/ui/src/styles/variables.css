@@ -1,0 +1,210 @@
+@layer base {
+  :root {
+    /* Primary colors (Yellow-based) - Used as primary in the UI */
+    --primary-50: 48 100% 96%;   /* #FFFAE6 - Very light yellow */
+    --primary-100: 48 100% 90%;  /* #FFF6CC - Light yellow */
+    --primary-200: 48 100% 80%;  /* #FFEB99 - Light yellow */
+    --primary-300: 48 100% 70%;  /* #FFE066 - Medium yellow */
+    --primary-400: 48 100% 60%;  /* #FFD433 - Bright yellow */
+    --primary-500: 48 100% 50%;  /* #FFCC00 - Base yellow */
+    --primary-600: 48 80% 45%;   /* #E6B800 - Deeper yellow */
+    --primary-700: 48 100% 40%;  /* #CC9900 - Dark yellow */
+    --primary-800: 48 100% 30%;  /* #997300 - Very dark yellow */
+    --primary-900: 48 100% 20%;  /* #664D00 - Almost brown */
+    --primary-950: 48 100% 10%;  /* #332600 - Deep brown */
+
+    /* Font Families */
+    --font-primary: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    --font-secondary: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+
+    /* Yellow Variations */
+    --yellow-signature: 48 100% 50%;    /* #FFCC00 - Main brand yellow */
+    --yellow-soft: 52 100% 83%;         /* #FFF0AA - Light yellow for backgrounds */
+    --yellow-warm: 42 85% 62%;          /* #F2C94C - Warmer yellow for accents */
+    --yellow-pale: 50 100% 95%;         /* #FFFAE6 - Very subtle yellow tint */
+    
+    /* Yellow Scale */
+    --yellow-50: 50 100% 97%;           /* #FFFCEB */
+    --yellow-100: 50 100% 95%;          /* #FFFAE6 - Pale Yellow */
+    --yellow-200: 50 96% 90%;           /* #FFF3CC */
+    --yellow-300: 50 93% 85%;           /* #FFEEB3 */
+    --yellow-400: 52 100% 83%;          /* #FFF0AA - Soft Yellow */
+    --yellow-500: 48 95% 70%;           /* #FFE066 */
+    --yellow-600: 48 100% 50%;          /* #FFCC00 - Signature Yellow */
+    --yellow-700: 42 85% 62%;           /* #F2C94C - Warm Yellow */
+    --yellow-800: 40 80% 50%;           /* #E6B800 */
+    --yellow-900: 40 85% 40%;           /* #B89200 */
+    --yellow-950: 40 90% 30%;           /* #8A6D00 */
+    
+    /* Primary colors - Use yellow as primary */
+    --primary-50: var(--yellow-50);
+    --primary-100: var(--yellow-100);
+    --primary-200: var(--yellow-200);
+    --primary-300: var(--yellow-300);
+    --primary-400: var(--yellow-400);
+    --primary-500: var(--yellow-500);
+    --primary-600: var(--yellow-600);
+    --primary-700: var(--yellow-700);
+    --primary-800: var(--yellow-800);
+    --primary-900: var(--yellow-900);
+    --primary-950: var(--yellow-950);
+    
+    /* White/Off-white Variations */
+    --white-pure: 0 0% 100%;            /* #FFFFFF */
+    --white-off: 0 0% 98%;              /* #FAFAFA */
+    --white-ivory: 60 30% 97%;          /* #F8F7F2 */
+    --white-cream: 48 36% 94%;          /* #F5F3EA */
+    
+    /* Black/Dark Variations */
+    --black-true: 0 0% 0%;              /* #000000 */
+    --black-soft: 0 0% 13%;             /* #222222 */
+    --gray-dark: 0 0% 20%;              /* #333333 */
+    --gray-medium: 0 0% 40%;            /* #666666 */
+    
+    /* Neutral Scale */
+    --neutral-50: 0 0% 98%;             /* #FAFAFA - Off White */
+    --neutral-100: 60 30% 97%;          /* #F8F7F2 - Ivory White */
+    --neutral-200: 48 36% 94%;          /* #F5F3EA - Cream White */
+    --neutral-300: 40 20% 92%;          /* #EEECE6 */
+    --neutral-400: 30 10% 80%;          /* #D1CFCC */
+    --neutral-500: 20 5% 60%;           /* #9D9C99 */
+    --neutral-600: 10 5% 40%;           /* #686765 */
+    --neutral-700: 0 0% 30%;            /* #4D4D4D */
+    --neutral-800: 0 0% 20%;            /* #333333 - Dark Gray */
+    --neutral-900: 0 0% 13%;            /* #222222 - Soft Black */
+    --neutral-950: 0 0% 6%;             /* #0F0F0F */
+    --neutral-1000: 0 0% 0%;            /* #000000 - True Black */
+    
+    /* Semantic Colors */
+    --success: 122 60% 40%;             /* #4CAF50 */
+    --error: 4 78% 55%;                 /* #E53935 */
+    --warning: 36 100% 50%;             /* #FF9800 */
+    --info: 210 79% 54%;                /* #2196F3 */
+    
+    /* Alpha Values for Opacity System */
+    --alpha-5: 0.05;
+    --alpha-10: 0.1;
+    --alpha-15: 0.15;
+    --alpha-20: 0.2;
+    --alpha-25: 0.25;
+    --alpha-30: 0.3;
+    --alpha-40: 0.4;
+    --alpha-50: 0.5;
+    --alpha-60: 0.6;
+    --alpha-70: 0.7;
+    --alpha-80: 0.8;
+    --alpha-90: 0.9;
+    --alpha-95: 0.95;
+    
+    /* Shadow Values */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    
+    /* Food Platform Specific Values */
+    --header-height: 4rem;
+    --footer-padding: 4rem 2rem 2rem;
+    --content-max-width: 1200px;
+    --card-border-radius: 0.75rem;
+    --input-border-radius: 0.375rem;
+    --tag-border-radius: 1rem;
+    --card-padding: 1.5rem;
+    --section-padding: 5rem 2rem;
+  }
+
+  /* Dark mode values */
+  .dark {
+    /* Yellow Variations - slightly adjusted for dark mode */
+    --yellow-signature: 48 95% 48%;     /* #F2C200 - Slightly muted */
+    --yellow-soft: 52 90% 80%;          /* #FFECA3 - Less bright */
+    --yellow-warm: 42 80% 60%;          /* #EBCF87 - Softer warm */
+    --yellow-pale: 50 90% 92%;          /* #FFF8D9 - Slightly less pale */
+    
+    /* Update primary colors to match yellow in dark mode */
+    --primary-50: var(--yellow-50);
+    --primary-100: var(--yellow-100);
+    --primary-200: var(--yellow-200);
+    --primary-300: var(--yellow-300);
+    --primary-400: var(--yellow-400);
+    --primary-500: var(--yellow-500);
+    --primary-600: var(--yellow-600);
+    --primary-700: var(--yellow-700);
+    --primary-800: var(--yellow-800);
+    --primary-900: var(--yellow-900);
+    --primary-950: var(--yellow-950);
+    
+    /* White/Off-white becomes darker in dark mode */
+    --white-pure: 0 0% 15%;             /* #262626 */
+    --white-off: 0 0% 13%;              /* #222222 */
+    --white-ivory: 60 10% 12%;          /* #201F1C */
+    --white-cream: 48 12% 11%;          /* #1F1D19 */
+    
+    /* Black/Dark becomes lighter in dark mode for contrast */
+    --black-true: 0 0% 100%;            /* #FFFFFF */
+    --black-soft: 0 0% 95%;             /* #F2F2F2 */
+    --gray-dark: 0 0% 85%;              /* #D9D9D9 */
+    --gray-medium: 0 0% 75%;            /* #BFBFBF */
+    
+    /* Neutral Scale - inverted for dark mode */
+    --neutral-50: 0 0% 13%;             /* #222222 */
+    --neutral-100: 60 10% 12%;          /* #201F1C */
+    --neutral-200: 48 12% 11%;          /* #1F1D19 */
+    --neutral-300: 40 8% 15%;           /* #28262A */
+    --neutral-400: 30 5% 25%;           /* #413F3D */
+    --neutral-500: 20 5% 45%;           /* #767370 */
+    --neutral-600: 10 5% 65%;           /* #A9A7A4 */
+    --neutral-700: 0 0% 75%;            /* #BFBFBF */
+    --neutral-800: 0 0% 85%;            /* #D9D9D9 */
+    --neutral-900: 0 0% 93%;            /* #EDEDED */
+    --neutral-950: 0 0% 97%;            /* #F7F7F7 */
+    --neutral-1000: 0 0% 100%;          /* #FFFFFF */
+    
+    /* Semantic Colors - adjusted for dark mode */
+    --success: 122 50% 45%;             /* #4CAF50 - Same */
+    --error: 4 70% 58%;                 /* #E95555 - Slightly lighter */
+    --warning: 36 90% 55%;              /* #FFA726 - Slightly lighter */
+    --info: 210 70% 58%;                /* #42A5F5 - Slightly lighter */
+    
+    /* Shadow Values - darker in dark mode */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+  }
+}
+
+/* Dark mode adjustments */
+.dark {
+  --primary-50: 48 100% 10%;
+  --primary-100: 48 100% 15%;
+  --primary-200: 48 90% 20%;
+  --primary-300: 48 90% 30%;
+  --primary-400: 48 90% 40%;
+  --primary-500: 48 100% 50%;
+  --primary-600: 48 100% 60%;
+  --primary-700: 48 100% 70%;
+  --primary-800: 48 100% 80%;
+  --primary-900: 48 100% 90%;
+  --primary-950: 48 100% 96%;
+
+  /* Neutral Scale - Inverted for dark mode */
+  --neutral-50: 0 0% 13%;
+  --neutral-100: 0 0% 16%;
+  --neutral-200: 0 0% 20%;
+  --neutral-300: 0 0% 30%;
+  --neutral-400: 0 0% 40%;
+  --neutral-500: 0 0% 50%;
+  --neutral-600: 0 0% 60%;
+  --neutral-700: 0 0% 70%;
+  --neutral-800: 0 0% 80%;
+  --neutral-900: 0 0% 90%;
+  --neutral-950: 0 0% 96%;
+  --neutral-1000: 0 0% 100%;
+
+  /* Black/White reversed */
+  --black-true: 0 0% 100%;
+  --black-soft: 0 0% 90%;
+  --white-pure: 0 0% 10%;
+  --white-off: 0 0% 13%;
+} 
