@@ -1,0 +1,14 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "tailwindcss";
+@import "./theme.css";
+
+@source "../../**/*.{js,jsx,ts,tsx}";
+
+@layer base {
+  :root {
+    --font-primary: var(--font-poppins);
+    --font-secondary: var(--font-montserrat);
+  }
+} 

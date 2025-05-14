@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import '@repo/ui/styles.css';
+
+@layer base {
+  body {
+    @apply bg-gray-50;
+  }
+
+  /* Specifieke stijlen voor admin/staff interfaces */
+  .admin-mode body {
+    @apply bg-slate-100;
+  }
+  
+  .staff-mode body {
+    @apply bg-slate-50;
+  }
+} 
