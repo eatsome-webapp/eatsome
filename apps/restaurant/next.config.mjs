@@ -2,10 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ["@repo/ui", "@repo/auth"],
+  serverExternalPackages: [],
   experimental: {
-    serverComponentsExternalPackages: [],
-    esmExternals: 'loose',
-  },
+    esmExternals: true
+  }
 };
 
 export default nextConfig; 

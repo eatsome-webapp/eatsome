@@ -1,27 +1,61 @@
+'use client';
+
+import { signOut } from '@repo/auth';
+import Link from 'next/link';
+
 export default function StaffLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const handleSignOut = async () => {
+    await signOut();
+    window.location.href = '/staff-login';
+  };
+
   return (
-    <div className="staff-mode">
-      <div className="flex h-screen">
-        <div className="w-64 bg-white border-r border-gray-200 hidden md:block">
-          {/* Staff sidebar komt hier */}
-          <div className="p-4 font-semibold">Staff Sidebar</div>
+    <div className="flex min-h-screen bg-gray-50">
+      {/* Sidebar */}
+      <aside className="w-64 bg-white shadow-md">
+        <div className="p-6">
+          <h2 className="text-xl font-bold">EatSome Staff</h2>
         </div>
         
-        <div className="flex-1 flex flex-col">
-          <header className="h-16 border-b border-gray-200 flex items-center px-4">
-            {/* Staff header komt hier */}
-            <div>Restaurant Staff Dashboard</div>
-          </header>
-          
-          <main className="flex-1 overflow-auto p-6">
-            {children}
-          </main>
+        <nav className="mt-6">
+          <ul className="space-y-2">
+            <li>
+              <Link 
+                href="/(staff)/orders"
+                className="block px-6 py-3 text-gray-600 hover:bg-gray-100"
+              >
+                Orders
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/(staff)/kitchen"
+                className="block px-6 py-3 text-gray-600 hover:bg-gray-100"
+              >
+                Kitchen View
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        
+        <div className="mt-auto p-6">
+          <button 
+            onClick={handleSignOut}
+            className="w-full py-2 px-4 bg-red-500 hover:bg-red-600 text-white rounded-md"
+          >
+            Sign Out
+          </button>
         </div>
-      </div>
+      </aside>
+      
+      {/* Main content */}
+      <main className="flex-grow p-8">
+        {children}
+      </main>
     </div>
   );
 } 

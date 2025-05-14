@@ -16,6 +16,8 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@supabase/ssr": "latest"
+    "@supabase/ssr": "latest",
+    "@supabase/supabase-js": "latest",
+    "next": "^15.3.2"
   }
 } 

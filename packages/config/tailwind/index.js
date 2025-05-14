@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        primary: ["var(--font-poppins)"],
-        secondary: ["var(--font-montserrat)"],
+        primary: ["var(--font-primary)"],
+        secondary: ["var(--font-secondary)"],
       },
       colors: {
         secondary: {

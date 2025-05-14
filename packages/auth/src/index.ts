@@ -1,15 +1,23 @@
-// Export types
+// Export roles and types
 export * from './types/roles';
 
 // Export server utilities
-export * from './server';
+export { getUser, getUserRole, createClient } from './server';
 
 // Export client utilities
-export * from './client';
-
-// Export role-specific utilities
-export * from './roles/admin';
-export * from './roles/staff';
+export { createClient as createBrowserClient } from './client';
 
 // Export middleware
-export * from './middleware'; 
+export * from './middleware';
+
+// Export authentication actions
+export * from './actions';
+
+// Re-export Supabase types for convenience
+export type { User, Session } from '@supabase/supabase-js';
+
+// Server-side auth
+export * from './server/role-check';
+
+// Client-side auth
+export * from './client'; 
