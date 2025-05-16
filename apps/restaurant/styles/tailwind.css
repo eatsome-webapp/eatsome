@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@theme {
+  /* Simple color scheme: 60% white, 30% black, 10% yellow */
+  --background: 248 249 250; /* #F8F9FA - almost white */
+  --foreground: 18 18 18; /* #121212 - near black */
+  --card: 255 255 255; /* White */
+  --card-foreground: 18 18 18; /* #121212 */
+  --primary: 255 212 58; /* #FFD43A - yellow */
+  --primary-foreground: 18 18 18; /* #121212 - black text on yellow */
+  --secondary: 18 18 18; /* #121212 - black */
+  --secondary-foreground: 255 212 58; /* #FFD43A - yellow text on black */
+  --muted: 240 240 240;
+  --muted-foreground: 115 115 115;
+  --accent: 255 212 58; /* #FFD43A */
+  --accent-foreground: 18 18 18; /* #121212 */
+  --destructive: 220 38 38; /* Red */
+  --destructive-foreground: 255 255 255; /* White */
+  --border: 230 230 230;
+  --input: 230 230 230;
+  --ring: 255 212 58; /* #FFD43A */
+  --radius: 0.5rem;
+}
+
+/* Base styles */
+@layer base {
+  :root {
+    /* Simple color scheme: 60% white, 30% black, 10% yellow */
+    --foreground: 18 18 18; /* #121212 - near black */
+    --card: 255 255 255; /* White */
+    --card-foreground: 18 18 18; /* #121212 */
+    --primary: 255 212 58; /* #FFD43A - yellow */
+    --primary-foreground: 18 18 18; /* #121212 - black text on yellow */
+    --secondary: 18 18 18; /* #121212 - black */
+    --secondary-foreground: 255 212 58; /* #FFD43A - yellow text on black */
+    --muted: 240 240 240;
+    --muted-foreground: 115 115 115;
+    --accent: 255 212 58; /* #FFD43A */
+    --accent-foreground: 18 18 18; /* #121212 */
+    --destructive: 220 38 38; /* Red */
+    --destructive-foreground: 255 255 255; /* White */
+    --border: 230 230 230;
+    --input: 230 230 230;
+    --ring: 255 212 58; /* #FFD43A */
+    
+    /* Spacing */
+    --spacing: 0.5rem;
+    
+    /* Radius */
+    --radius: 0.5rem;
+
+    /* Grid Baseline */
+    --grid-baseline: 8px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+    font-weight: 500; /* Medium as base */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700; /* Bold headings by default */
+  }
+
+  .font-montserrat {
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+  }
+}
+
+/* Reset styles */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Component styling */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-bold py-3 px-4 rounded-md hover:opacity-90 transition-all;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground font-bold py-3 px-4 rounded-md hover:opacity-90 transition-all;
+  }
+  
+  .card-title {
+    @apply font-bold text-xl mb-2;
+  }
+  
+  .input-field {
+    @apply w-full border border-input rounded-md focus:border-ring focus:ring-1 focus:ring-ring px-3 py-2;
+  }
+}
+
+/* Custom animations */
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-up {
+    from {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+} 

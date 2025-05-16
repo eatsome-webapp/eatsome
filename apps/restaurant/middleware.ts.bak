@@ -1,0 +1,92 @@
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import { createServerClient } from '@supabase/ssr';
+
+// Define public routes that don't require authentication
+const publicRoutes = [
+  '/',
+  '/login',
+  '/register',
+  '/reset-password',
+  '/auth/callback',
+  '/auth/confirm',
+  '/unauthorized',
+];
+
+// Middleware to check auth and roles
+export async function middleware(request: NextRequest) {
+  // Create a response instance that we'll use to pass cookies
+  let response = NextResponse.next({
+    request: {
+      headers: request.headers,
+    },
+  });
+
+  // Create a Supabase client for the middleware
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string) {
+          return request.cookies.get(name)?.value;
+        },
+        set(name: string, value: string, options: any) {
+          response.cookies.set({
+            name,
+            value,
+            ...options,
+          });
+        },
+        remove(name: string, options: any) {
+          response.cookies.set({
+            name,
+            value: '',
+            ...options,
+            maxAge: 0,
+          });
+        },
+      },
+    }
+  );
+
+  // Refresh the session
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  // Check if the route is in the public routes list
+  const path = request.nextUrl.pathname;
+  const isPublicRoute = publicRoutes.some(
+    (route) => path === route || path.startsWith(`${route}/`)
+  );
+
+  // Allow public routes
+  if (isPublicRoute) {
+    return response;
+  }
+
+  // Redirect to login if not authenticated
+  if (!user) {
+    const redirectUrl = new URL('/login', request.url);
+    redirectUrl.searchParams.set('next', path);
+    return NextResponse.redirect(redirectUrl);
+  }
+
+  // User is authenticated, proceed
+  return response;
+}
+
+// Define which routes this middleware should run on
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * - public files (e.g. /images, /fonts)
+     */
+    '/((?!_next/static|_next/image|favicon.ico|images/|fonts/).*)',
+  ],
+};

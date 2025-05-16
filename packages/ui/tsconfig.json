@@ -1,11 +1,7 @@
 {
-  "extends": "@repo/tsconfig/react-library.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
+  "extends": "tsconfig-eatsome/react-library.json",
   "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "compilerOptions": {
+    "outDir": "dist"
+  }
 } 

@@ -1,23 +1,17 @@
-// Export roles and types
-export * from './types/roles';
+// Context
+export * from './context/auth-context';
 
-// Export server utilities
-export { getUser, getUserRole, createClient } from './server';
+// Components
+export * from './components/role-guard';
 
-// Export client utilities
-export { createClient as createBrowserClient } from './client';
+// Hooks
+export * from './hooks/use-auth-form';
+export * from './hooks/use-role-check';
 
-// Export middleware
-export * from './middleware';
+// Utils
+export * from './utils/roles';
+export * from './utils/types';
+export * from './utils/route-guards';
+export * from './utils/client-auth';
 
-// Export authentication actions
-export * from './actions';
-
-// Re-export Supabase types for convenience
-export type { User, Session } from '@supabase/supabase-js';
-
-// Server-side auth
-export * from './server/role-check';
-
-// Client-side auth
-export * from './client'; 
+// Note: server utilities are exported from ./server.ts

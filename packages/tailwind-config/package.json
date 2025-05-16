@@ -1,0 +1,10 @@
+{
+  "name": "tailwind-config-eatsome",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^4.1.6"
+  }
+}
