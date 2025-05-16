@@ -1,7 +1,0 @@
-{
-  "extends": "tsconfig-eatsome/react-library.json",
-  "include": ["src"],
-  "compilerOptions": {
-    "outDir": "dist"
-  }
-} 
